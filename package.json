@@ -1,0 +1,67 @@
+{
+  "name": "adistlegacy",
+  "version": "1.0.0",
+  "description": "Sistema para migra de la aplicación adist",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --env=jsdom --verbose",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --spec **/*.features"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime": "^7.17.0",
+    "@testing-library/dom": "^8.11.3",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.5.0",
+    "babel-jest": "^27.0.2",
+    "babel-loader": "^8.2.3",
+    "cypress": "^9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "jest": "^27.0.4",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4",
+    "webpack-merge": "^5.8.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/*.steps.js",
+      "**/*.tests.js"
+    ],
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,js,jsx}"
+    ],
+    "globals": {
+      "window": true
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "tests/cypress/integration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProgramacionSiccob/adistlegacy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ProgramacionSiccob/adistlegacy/issues"
+  },
+  "homepage": "https://github.com/ProgramacionSiccob/adistlegacy#readme"
+}
