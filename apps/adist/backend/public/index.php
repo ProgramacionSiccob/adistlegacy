@@ -21,7 +21,7 @@ $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 
 if ($response->isNotFound()) {
-    require __DIR__ . '/../../../../../adist3/public/index.php';
+    require __DIR__ . $_ENV['APP_ADIST'];
 } else {
     $response->send();
     $kernel->terminate($request , $response);
