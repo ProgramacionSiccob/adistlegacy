@@ -1,0 +1,4 @@
+default:
+  path: /
+  controller: Siccob\Adist\Backend\Controller\DefaultController
+  methods: GET
