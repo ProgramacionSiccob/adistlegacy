@@ -6,6 +6,7 @@ const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
   mode: 'development',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -19,20 +20,13 @@ module.exports = merge(commonConfig, {
     ]
   },
   output: {
-    publicPath: '/',
-    path: path.resolve(__dirname, '..', 'public'),
+    path: path.resolve(__dirname, '..', '..', 'backend/public'),
     filename: 'bundle.[contenthash].js',
     chunkFilename: 'bundle.chunk.js'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-        REACT_APP_API: JSON.stringify('http://cinemex')
-      }
-    }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', 'src/template', 'index.html')
+      template: path.resolve(__dirname, '..', '..', 'backend/templates', 'index.html')
     })
   ],
   devServer: {
@@ -40,7 +34,7 @@ module.exports = merge(commonConfig, {
     open: true,
     hot: false,
     static: {
-      directory: path.resolve(__dirname, '..', 'public')
+      directory: path.resolve(__dirname, '..', '..', 'backend/public')
     },
     historyApiFallback: true
   },

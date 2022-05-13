@@ -2,17 +2,22 @@ const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: false,
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   output: {
     publicPath: '/',
-    path: path.resolve(__dirname, '..', 'public'),
-    filename: 'bundle.[contenthash].js'
+    path: path.resolve(__dirname, '..', '..', 'backend/public'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -37,23 +42,36 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin({
+      verbose: true,
+      dry: false,
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        '!.htaccess',
+        '!favicon.ico',
+        '!index.php',
+        '!assets',
+        '!assets/*',
+        '!cr',
+        '!cr/*',
+        '!storage',
+        '!storage/*'
+      ]
+    }),
     new MiniCssExtractPlugin({
-      filename: 'assets/styles/styles[contenthash].css'
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      inject: true,
-      template: path.resolve(__dirname, '..', 'src/template', 'index.html')
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-        REACT_APP_API: JSON.stringify('https://cnmx.api.siccob.com.mx')
-      }
+      filename: 'styles.css'
     })
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()]
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        }
+      })
+    ]
   }
 });

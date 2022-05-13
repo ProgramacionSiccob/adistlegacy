@@ -1,17 +1,17 @@
 {
-  "baseUrl": "http://localhost:8080/",
+  "baseUrl": "http://localhost:3000/",
   "chromeWebSecurity": false,
-  "fixturesFolder": "tests/cypress/fixtures",
-  "fileServerFolder": "tests/cypress",
-  "integrationFolder": "tests/cypress/integration",
-  "pluginsFile": "tests/cypress/plugins/index.js",
-  "supportFile": "tests/cypress/support/index.js",
-  "downloadsFolder": "tests/cypress/downloads",
+  "fixturesFolder": "tests/adist/apps/frontend/cypress/fixtures",
+  "fileServerFolder": "tests/adist/apps/frontend/cypress",
+  "integrationFolder": "tests/adist/apps/frontend/cypress/integration",
+  "pluginsFile": "tests/adist/apps/frontend/cypress/plugins/index.js",
+  "supportFile": "tests/adist/apps/frontend/cypress/support/index.js",
+  "downloadsFolder": "tests/adist/apps/frontend/cypress/downloads",
   "screenshotOnRunFailure": false,
-  "screenshotsFolder": "tests/cypress/screenshots",
+  "screenshotsFolder": "tests/adist/apps/frontend/cypress/screenshots",
   "testFiles": "**/*.{feature, features}",
   "viewportHeight": 768,
   "viewportWidth": 1366,
   "video": false,
-  "videosFolder": "tests//cypress/videos"
+  "videosFolder": "tests/adist/apps/frontend/cypress/videos"
 }
