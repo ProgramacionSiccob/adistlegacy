@@ -1,0 +1,20 @@
+ia_behat:
+  extensions:
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        class: Siccob\Adist\Backend\AdistKernel
+        environment: ~
+      bootstrap: apps/bootstrap.php
+    Behat\MinkExtension:
+      sessions:
+        symfony:
+          symfony: ~
+  suites:
+    health_check:
+      paths: [ tests/identificationAccess/apps/backend/features/healthCheck ]
+      contexts:
+        - Siccob\Tests\shared\infrastructure\behat\APIContext
+    login:
+      paths: [ tests/identificationAccess/apps/backend/features/user ]
+      contexts:
+        - Siccob\Tests\shared\infrastructure\behat\APIContext

@@ -4,9 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-#imports:
-#  - { resource: ../../../../src/identificationAccess/shared/infrastructure/symfony/dependencyInjection/siccob_database.yaml }
-#  - { resource: ../../../../src/identificationAccess/shared/infrastructure/symfony/dependencyInjection/adist_database.yaml }
+imports:
+  - { resource: ../../../../src/identificationAccess/shared/infrastructure/symfony/dependencyInjection/adist_database.yaml }
 
 services:
   # default configuration for services in *this* file
@@ -23,7 +22,7 @@ services:
   # as action arguments even if you don't extend any base controller class
   Siccob\Adist\Backend\Controller\:
     resource: '../src/Controller'
-    tags: ['controller.service_arguments']
+    tags: [ 'controller.service_arguments' ]
 
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones

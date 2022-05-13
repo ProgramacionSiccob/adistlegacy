@@ -12,6 +12,7 @@
     "ramsey/uuid": "^4.2",
     "symfony/mailer": "^5.4",
     "symfony/google-mailer": "^5.4",
+    "lexik/jwt-authentication-bundle": "^2.15",
 
     "aws/aws-sdk-php": "^3.184",
     "google/apiclient": "^2.9",

@@ -24,6 +24,8 @@ composer.phar
 /.env.test
 .env.local
 .env.test
+/apps/adist/backend/config/jwt/private.pem
+/apps/adist/backend/config/jwt/public.pem
 ###< Files ###
 
 ###> nodejs ###
@@ -32,3 +34,4 @@ composer.phar
 /**/*/package-lock.json
 /**/*/node_modules/
 ###< nodejs ###
+

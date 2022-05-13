@@ -31,7 +31,7 @@
     <testsuites>
         <testsuite name="identificationAccess">
             <directory>./tests/identificationAccess/src</directory>
-            <exclude>./tests/identificationAccess/src/session/SessionModuleUnitTest.php</exclude>
+            <exclude>./tests/identificationAccess/src/user/UserModuleUnitTest.php</exclude>
         </testsuite>
     </testsuites>
 </phpunit>

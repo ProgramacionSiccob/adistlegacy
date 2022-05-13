@@ -1,0 +1,4 @@
+sing-in:
+  path: /api/singIn
+  controller: Siccob\Adist\Backend\Controller\identificationAccess\user\SingInController
+  methods: POST
