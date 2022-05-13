@@ -1,4 +1,9 @@
-#default:
-#  path: /
-#  controller: Siccob\Adist\Backend\Controller\DefaultController
-#  methods: GET
+default:
+  path: '/'
+  controller: Siccob\Adist\Backend\Controller\DefaultController
+  methods: GET
+
+frontend:
+  path: '/{path?}'
+  controller: Siccob\Adist\Backend\Controller\DefaultController
+  methods: GET
