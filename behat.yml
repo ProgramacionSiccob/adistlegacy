@@ -1,2 +1,2 @@
-#imports:
-#  - tests/identificationAccess/apps/backend/ia_behat.yml
+imports:
+  - tests/identificationAccess/apps/backend/identification_access_behat.yml

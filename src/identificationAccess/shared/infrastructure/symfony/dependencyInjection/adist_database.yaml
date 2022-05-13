@@ -1,0 +1,23 @@
+services:
+  # Alias Database Nican
+  Doctrine\ORM\EntityManager $ADISTEntityManager: '@adist_doctrine_repository'
+
+  # Configuration
+  adist_doctrine_repository:
+    class: Siccob\shared\infrastructure\doctrine\DoctrineRepository
+    factory: [ Siccob\identificationAccess\shared\infrastructure\doctrine\AdistEntityManagerFactory, create ]
+    arguments:
+      - driver: '%env(ADIST_DATABASE_DRIVER)%'
+        host: '%env(ADIST_DATABASE_HOST)%'
+        port: '%env(ADIST_DATABASE_PORT)%'
+        dbname: '%env(ADIST_DATABASE_NAME)%'
+        user: '%env(ADIST_DATABASE_USER)%'
+        password: '%env(ADIST_DATABASE_PASSWORD)%'
+        charset: 'utf8'
+        default_table_options:
+          charset: 'utf8'
+          collate: 'utf8_general_ci'
+      - '%env(APP_ENV)%'
+    tags:
+      - { name: bc.database_connection }
+    public: true
